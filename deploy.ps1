@@ -2,7 +2,7 @@
 npm run build
 
 # Navigate to the build output directory
-cd dist
+Set-Location -Path "dist"
 
 # Initialize a new git repository
 git init
@@ -15,4 +15,4 @@ git commit -m "deploy"
 git push -f https://github.com/Reztorye/nana_.git main:gh-pages
 
 # Return to the project root
-cd ..
+Set-Location -Path ".."
