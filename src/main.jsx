@@ -7,12 +7,8 @@ import './i18n'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-<<<<<<< HEAD
-    <HashRouter>
-=======
-        <BrowserRouter basename="/nana_/">
->>>>>>> 72e7148 (fix: audio control launcher bugs, CSS 500 error, and expand language support)
+        <HashRouter>
             <App />
-    </HashRouter>
-    </React.StrictMode >,
+        </HashRouter>
+    </React.StrictMode>,
 )
