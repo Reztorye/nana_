@@ -7,10 +7,13 @@ import { Navbar } from './components/Navbar'
 import { IntroScroll } from './components/IntroScroll'
 import { Quiz } from './components/Quiz'
 import { NanaPage } from './components/NanaPage'
+import { useScrollAudio } from './hooks/useScrollAudio'
 
 function HomePage() {
     const [showQuiz, setShowQuiz] = useState(false)
     const navigate = useNavigate()
+
+    useScrollAudio();
 
     useEffect(() => {
         AOS.init({

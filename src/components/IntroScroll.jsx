@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import pibbleImg from '../images/pibble.png';
 import adaImg from '../images/ada.png';
 import leonImg from '../images/leon.png';
@@ -46,6 +47,8 @@ const ScrollRevealImage = ({ src, alt, children }) => {
 };
 
 export const IntroScroll = ({ onStartQuiz }) => {
+    const { t } = useTranslation();
+
     const handleContinue = () => {
         if (onStartQuiz) {
             onStartQuiz();
@@ -59,13 +62,13 @@ export const IntroScroll = ({ onStartQuiz }) => {
             <ScrollRevealImage src={pibbleImg} alt="Pibble">
                 <div className="text-center space-y-2 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
                     <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-2">
-                        pibble.
+                        {t('intro.title')}
                     </h1>
                     <p className="text-xl md:text-2xl font-light text-300 italic">
-                        im pibble.
+                        {t('intro.subtitle')}
                     </p>
                     <p className="text-sm md:text-base text-500 tracking-widest uppercase mt-8">
-                        wash my belly.
+                        {t('intro.action')}
                     </p>
 
                     <button
@@ -73,7 +76,7 @@ export const IntroScroll = ({ onStartQuiz }) => {
                         className="mt-12 px-8 py-3 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
                         style={{ backgroundColor: '#722F37' }} // Wine color
                     >
-                        continuar
+                        {t('intro.continue')}
                     </button>
                 </div>
             </ScrollRevealImage>

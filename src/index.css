@@ -18,10 +18,10 @@
     */
     scrollbar-width: none;
     -ms-overflow-style: none;
+  }
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  body::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -31,10 +31,10 @@
   .no-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
+  }
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -440,4 +440,45 @@
   .nana-motivo-text {
     font-size: 0.82rem;
   }
+}
+
+/* ───────── Launcher Easter Egg ───────── */
+
+.launcher-icon-btn {
+  /* rotate around a point near the left edge — the "barrel" pivot */
+  transform-origin: 15% 50%;
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.launcher-icon-btn:focus-visible {
+  outline: 2px solid rgba(185, 84, 96, 0.6);
+  border-radius: 4px;
+}
+
+.launcher-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(185, 84, 96, 0.95);
+  box-shadow: 0 0 10px rgba(185, 84, 96, 0.8), 0 0 3px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  transition: opacity 0.5s ease-out;
+  opacity: 1;
+}
+
+.launcher-bullet-fading {
+  opacity: 0;
+}
+
+/* Hide the native slider thumb while the bullet is in the air */
+.launcher-slider-hidden::-webkit-slider-thumb {
+  opacity: 0 !important;
+}
+
+.launcher-slider-hidden::-moz-range-thumb {
+  opacity: 0 !important;
 }

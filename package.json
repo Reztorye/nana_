@@ -15,8 +15,11 @@
     "@supabase/supabase-js": "^2.95.3",
     "aos": "^2.3.4",
     "framer-motion": "^11.0.0",
+    "i18next": "^25.8.13",
+    "lucide-react": "^0.575.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^16.5.4",
     "react-router-dom": "^7.13.0"
   },
   "devDependencies": {

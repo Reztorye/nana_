@@ -1,43 +1,46 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import skinwalkerImg from '../images/skinwalker.png';
 import { supabase } from '../supabaseClient';
 
-const questions = [
-    {
-        question: 'eles vão botar o chip em quem?',
-        image: null,
-        options: [
-            { letter: 'a', text: 'em nós' },
-            { letter: 'b', text: 'noiz' },
-            { letter: 'c', text: 'hur hur hur hur hur hur' },
-            { letter: 'd', text: 'nos alien' },
-            { letter: 'e', text: 'Arthur Morgan' },
-            { letter: 'f', text: 'nos emos' },
-        ],
-    },
-    {
-        question: 'esse ser da imagem é um skinwalker?',
-        image: skinwalkerImg,
-        options: [
-            { letter: 'a', text: 'sim' },
-            { letter: 'b', text: 'não' },
-        ],
-    },
-    {
-        question: 'escolha um data:',
-        image: null,
-        options: [
-            { letter: 'a', text: '30 de setembro de 1998' },
-            { letter: 'b', text: '24 de setembro de 2025' },
-            { letter: 'c', text: '27 de fevereiro de 2026' },
-            { letter: 'd', text: '19 de julho de 1995' },
-            { letter: 'e', text: '19 de março de 2026' },
-        ],
-    },
-];
-
 export const Quiz = ({ onComplete }) => {
+    const { t } = useTranslation();
+
+    const questions = [
+        {
+            question: t('quiz.questions.q1'),
+            image: null,
+            options: [
+                { letter: 'a', text: t('quiz.questions.q1opts.a') },
+                { letter: 'b', text: t('quiz.questions.q1opts.b') },
+                { letter: 'c', text: t('quiz.questions.q1opts.c') },
+                { letter: 'd', text: t('quiz.questions.q1opts.d') },
+                { letter: 'e', text: t('quiz.questions.q1opts.e') },
+                { letter: 'f', text: t('quiz.questions.q1opts.f') },
+            ],
+        },
+        {
+            question: t('quiz.questions.q2'),
+            image: skinwalkerImg,
+            options: [
+                { letter: 'a', text: t('quiz.questions.q2opts.a') },
+                { letter: 'b', text: t('quiz.questions.q2opts.b') },
+            ],
+        },
+        {
+            question: t('quiz.questions.q3'),
+            image: null,
+            options: [
+                { letter: 'a', text: t('quiz.questions.q3opts.a') },
+                { letter: 'b', text: t('quiz.questions.q3opts.b') },
+                { letter: 'c', text: t('quiz.questions.q3opts.c') },
+                { letter: 'd', text: t('quiz.questions.q3opts.d') },
+                { letter: 'e', text: t('quiz.questions.q3opts.e') },
+            ],
+        },
+    ];
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState(null);
     const [answers, setAnswers] = useState([]);
@@ -140,8 +143,7 @@ export const Quiz = ({ onComplete }) => {
                         className="quiz-question-wrapper"
                     >
                         <p className="quiz-question-number">
-                            questão {currentIndex + 1}
-                            <span> / {questions.length}</span>
+                            {t('quiz.questionNumber', { current: currentIndex + 1, total: questions.length })}
                         </p>
 
                         <h2 className="quiz-question-text">{current.question}</h2>
@@ -172,7 +174,7 @@ export const Quiz = ({ onComplete }) => {
                     onClick={handleNext}
                     disabled={selectedOption === null}
                 >
-                    {isLast ? 'finalizar' : 'próxima'}
+                    {isLast ? t('quiz.finish') : t('quiz.next')}
                 </button>
             </div>
         </motion.div>
